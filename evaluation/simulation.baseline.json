@@ -1,0 +1,207 @@
+{
+  "label": "SIMULATION ONLY — not real educational efficacy",
+  "assumptions": "20 practice events; 0.1 slip/0.2 guess; hidden transition rate 0.04+0.12*minimum prerequisite mastery; fresh held-out Bernoulli observations.",
+  "seeds": 30,
+  "sessions": "5 sessions of 4 practice events; no forgetting modeled",
+  "question_repetition": "Not evaluated: this simulator models concept events, not an item bank.",
+  "results": [
+    {
+      "profile": "beginner",
+      "policy": "fixed-order",
+      "metrics": {
+        "hidden_mastery_gain": {
+          "mean": 0.3797,
+          "stddev": 0.0
+        },
+        "estimated_mastery_mean": {
+          "mean": 0.4515,
+          "stddev": 0.1712
+        },
+        "held_out_gain": {
+          "mean": 0.3757,
+          "stddev": 0.0643
+        },
+        "held_out_accuracy": {
+          "mean": 0.4947,
+          "stddev": 0.046
+        }
+      }
+    },
+    {
+      "profile": "beginner",
+      "policy": "mastery-only",
+      "metrics": {
+        "hidden_mastery_gain": {
+          "mean": 0.308,
+          "stddev": 0.0377
+        },
+        "estimated_mastery_mean": {
+          "mean": 0.6511,
+          "stddev": 0.1418
+        },
+        "held_out_gain": {
+          "mean": 0.309,
+          "stddev": 0.0679
+        },
+        "held_out_accuracy": {
+          "mean": 0.428,
+          "stddev": 0.0506
+        }
+      }
+    },
+    {
+      "profile": "beginner",
+      "policy": "prerequisite-repair",
+      "metrics": {
+        "hidden_mastery_gain": {
+          "mean": 0.3349,
+          "stddev": 0.0431
+        },
+        "estimated_mastery_mean": {
+          "mean": 0.6576,
+          "stddev": 0.1196
+        },
+        "held_out_gain": {
+          "mean": 0.3347,
+          "stddev": 0.0808
+        },
+        "held_out_accuracy": {
+          "mean": 0.4537,
+          "stddev": 0.0691
+        }
+      }
+    },
+    {
+      "profile": "traversal-gap",
+      "policy": "fixed-order",
+      "metrics": {
+        "hidden_mastery_gain": {
+          "mean": 0.2595,
+          "stddev": 0.0
+        },
+        "estimated_mastery_mean": {
+          "mean": 0.6885,
+          "stddev": 0.1382
+        },
+        "held_out_gain": {
+          "mean": 0.247,
+          "stddev": 0.0601
+        },
+        "held_out_accuracy": {
+          "mean": 0.7307,
+          "stddev": 0.0405
+        }
+      }
+    },
+    {
+      "profile": "traversal-gap",
+      "policy": "mastery-only",
+      "metrics": {
+        "hidden_mastery_gain": {
+          "mean": 0.2618,
+          "stddev": 0.0279
+        },
+        "estimated_mastery_mean": {
+          "mean": 0.8207,
+          "stddev": 0.1069
+        },
+        "held_out_gain": {
+          "mean": 0.2503,
+          "stddev": 0.0699
+        },
+        "held_out_accuracy": {
+          "mean": 0.734,
+          "stddev": 0.0508
+        }
+      }
+    },
+    {
+      "profile": "traversal-gap",
+      "policy": "prerequisite-repair",
+      "metrics": {
+        "hidden_mastery_gain": {
+          "mean": 0.2685,
+          "stddev": 0.026
+        },
+        "estimated_mastery_mean": {
+          "mean": 0.8386,
+          "stddev": 0.0869
+        },
+        "held_out_gain": {
+          "mean": 0.257,
+          "stddev": 0.0675
+        },
+        "held_out_accuracy": {
+          "mean": 0.7407,
+          "stddev": 0.0532
+        }
+      }
+    },
+    {
+      "profile": "advanced",
+      "policy": "fixed-order",
+      "metrics": {
+        "hidden_mastery_gain": {
+          "mean": 0.1179,
+          "stddev": 0.0
+        },
+        "estimated_mastery_mean": {
+          "mean": 0.8934,
+          "stddev": 0.0733
+        },
+        "held_out_gain": {
+          "mean": 0.112,
+          "stddev": 0.055
+        },
+        "held_out_accuracy": {
+          "mean": 0.9043,
+          "stddev": 0.0231
+        }
+      }
+    },
+    {
+      "profile": "advanced",
+      "policy": "mastery-only",
+      "metrics": {
+        "hidden_mastery_gain": {
+          "mean": 0.1129,
+          "stddev": 0.0053
+        },
+        "estimated_mastery_mean": {
+          "mean": 0.9548,
+          "stddev": 0.049
+        },
+        "held_out_gain": {
+          "mean": 0.104,
+          "stddev": 0.0595
+        },
+        "held_out_accuracy": {
+          "mean": 0.8963,
+          "stddev": 0.0288
+        }
+      }
+    },
+    {
+      "profile": "advanced",
+      "policy": "prerequisite-repair",
+      "metrics": {
+        "hidden_mastery_gain": {
+          "mean": 0.1098,
+          "stddev": 0.0039
+        },
+        "estimated_mastery_mean": {
+          "mean": 0.922,
+          "stddev": 0.0158
+        },
+        "held_out_gain": {
+          "mean": 0.1007,
+          "stddev": 0.0594
+        },
+        "held_out_accuracy": {
+          "mean": 0.893,
+          "stddev": 0.0276
+        }
+      }
+    }
+  ]
+}

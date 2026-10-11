@@ -1,0 +1,10 @@
+{"question":"What does a pointer store?","reference":"A pointer stores an address or reference to a node, not a copy of the node.","locations":[{"source_name":"Foundations · authored course notes","page":1}],"off_material":false}
+{"question":"What marks the end of a singly linked list?","reference":"A null next reference marks the end.","locations":[{"source_name":"Foundations · authored course notes","page":1}],"off_material":false}
+{"question":"How many next links must be followed to reach the sixth node from the first?","reference":"Five next links, because reaching the kth node requires k-1 advances.","locations":[{"source_name":"Foundations · authored course notes","page":2}],"off_material":false}
+{"question":"What is the worst-case time to search a singly linked list?","reference":"O(n), since a search may inspect all n nodes.","locations":[{"source_name":"Foundations · authored course notes","page":2}],"off_material":false}
+{"question":"Which next-reference update happens first when inserting X after A?","reference":"Set X.next to A.next first, then set A.next to X.","locations":[{"source_name":"Foundations · authored course notes","page":3}],"off_material":false}
+{"question":"Is every linked-list insertion O(1)?","reference":"No. Rewiring after a known node is O(1), but searching for the position can take O(n).","locations":[{"source_name":"Foundations · authored course notes","page":4}],"off_material":false}
+{"question":"What ordering rule does a stack follow?","reference":"LIFO, last in first out.","locations":[{"source_name":"Foundations · authored course notes","page":5}],"off_material":false}
+{"question":"What ordering rule does a queue follow?","reference":"FIFO, first in first out.","locations":[{"source_name":"Foundations · authored course notes","page":6}],"off_material":false}
+{"question":"Who won the football world cup?","reference":"Not covered by these course materials.","locations":[],"off_material":true}
+{"question":"Describe mitochondria and cellular respiration.","reference":"Not covered by these course materials.","locations":[],"off_material":true}

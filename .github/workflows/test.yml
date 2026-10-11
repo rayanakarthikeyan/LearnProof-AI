@@ -1,4 +1,4 @@
-name: Learner starter checks
+name: Prototype checks
 on: [push, pull_request]
 jobs:
   test:
@@ -7,6 +7,23 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
+      - run: python -m pip install -r requirements.lock.txt
       - run: python -m unittest discover -s tests -v
       - run: python -m learnproof.demo
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm audit --audit-level=high
+      - run: npx playwright install --with-deps chromium --only-shell
+      - name: Browser workflow checks
+        run: |
+          npm run dev:all > /tmp/learnproof-dev.log 2>&1 &
+          for i in $(seq 1 30); do
+            if curl -sf http://127.0.0.1:5173/api/health; then break; fi
+            sleep 1
+          done
+          npm run test:ui

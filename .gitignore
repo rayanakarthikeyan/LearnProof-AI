@@ -8,3 +8,8 @@ node_modules/
 tmp/
 uploads/
 evaluation/runs/
+.local-data/
+dist/
+*.db
+*.db-shm
+*.db-wal

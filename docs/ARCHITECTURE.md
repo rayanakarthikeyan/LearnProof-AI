@@ -1,6 +1,6 @@
 # Proposed architecture
 
-This is an implementation design. Only the small Python learner/selection module currently exists.
+This is the target design. Version 0.2 implements a local React/FastAPI vertical slice with SQLite and local source assets. See README for the exact tested status; PostgreSQL, hybrid vector retrieval and durable workers are not implemented yet.
 
 ```mermaid
 flowchart LR
