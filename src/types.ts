@@ -9,3 +9,4 @@ export type Feedback = { correct: boolean | null; answer: string; feedback: stri
 export type Attempt = { id: string; correct: number | null; feedback: string; created_at: string; concept: string; prompt: string; kind: string };
 export type Progress = { topics: Topic[]; attempts: Attempt[]; total_attempts: number; scored_attempts: number; correct_attempts: number; observed_topics: number; estimate_note: string };
 export type Health = { provider_configured: boolean; mode: string; model: string | null; version: string };
+export type Tab = 'overview' | 'library' | 'tutor' | 'practice' | 'progress' | 'evaluation';
