@@ -34,14 +34,19 @@ try {
   await page.getByRole("button", { name: "Switch to dark mode" }).click();
   await page.reload();
   await page.getByRole("button", { name: "Switch to light mode" }).waitFor();
+  await page
+    .getByRole("heading", { name: "Build understanding. Keep the proof." })
+    .waitFor();
   await page.screenshot({
     path: "tmp/browser/overview-dark.png",
     fullPage: true,
+    animations: "disabled",
   });
   await page.getByRole("button", { name: "Switch to light mode" }).click();
   await page.screenshot({
     path: "tmp/browser/overview-desktop.png",
     fullPage: true,
+    animations: "disabled",
   });
   await page
     .getByRole("button", { name: "Evidence tutor", exact: true })
@@ -73,6 +78,7 @@ try {
   await page.screenshot({
     path: "tmp/browser/source-viewer.png",
     fullPage: true,
+    animations: "disabled",
   });
   await page.getByRole("button", { name: "Close source viewer" }).click();
   await page
@@ -211,6 +217,7 @@ try {
   await page.screenshot({
     path: "tmp/browser/overview-mobile.png",
     fullPage: true,
+    animations: "disabled",
   });
   assert.equal(
     await page.evaluate(
