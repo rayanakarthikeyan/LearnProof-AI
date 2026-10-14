@@ -1,5 +1,7 @@
 # LearnProof AI
 
+[![Prototype checks](https://github.com/rayanakarthikeyan/LearnProof-AI/actions/workflows/test.yml/badge.svg)](https://github.com/rayanakarthikeyan/LearnProof-AI/actions/workflows/test.yml)
+
 **Find the gap. Teach with evidence. Check real understanding.**
 
 Submission-candidate web application for **Multimodal AI Hackathon 2026, Track D: Personalized Tutoring & Adaptive Learning**.
@@ -14,12 +16,14 @@ Start with **Data Structures: pointers, linked lists and operation complexity**.
 
 ## Current status
 
+The full CI suite verifies 29 regressions, strict frontend build, desktop/mobile browser workflows, LibreOffice slide rendering, Docker preview, dependency audits and Ragas adapter imports.
+
 Version 0.3 adds course-specific concept suggestions, resumable diagnostic repair, scoped mock exams, cited revision, optional semantic retrieval, original raw-media fixtures and measured programmatic checks. **Live multimodal/Ragas validation and the Devpost/YouTube deliverables remain pending; do not claim final submission completion yet.**
 
 | Capability | Status |
 | --- | --- |
 | PDF ingestion | Real per-page text extraction and original-page rendering; tested |
-| PPTX ingestion | Text/images and approximate structural previews; tested. Full slide rendering uses optional LibreOffice when available; that branch is not locally verified |
+| PPTX ingestion | Text/images and approximate structural previews; tested. Full slide rendering uses LibreOffice; the Linux CI branch passes an explicit rendered-slide check. Windows local previews are approximate |
 | Video ingestion | Gemini Files API + timed segments + retained frame/video viewers implemented; requires a key and live verification |
 | Visual interpretation | Gemini image-based extraction implemented; requires a key and live verification |
 | Tutor | Local exact excerpts with lexical retrieval and boundary refusals; generated explanations and independent source-support checks implemented but not live verified |
@@ -28,6 +32,12 @@ Version 0.3 adds course-specific concept suggestions, resumable diagnostic repai
 | Source inspection | Actual page images, slide previews, original file links; timed video viewer implemented but not live verified |
 | Evaluation | 30-case programmatic audit measured; versioned 60-case multimodal gold set; compatible Ragas stack import-checked; no live Ragas scores measured |
 | Remaining track work | Live semantic/visual/video verification, 60-case framework run, source-fidelity inspection, real efficacy/calibration and required external submission deliverables |
+
+## Preview
+
+![LearnProof desktop overview](docs/assets/overview-desktop.png)
+
+[Mobile preview](docs/assets/overview-mobile.png). Captured from the working app by CI using a separate verification profile.
 
 ## Run the web prototype
 

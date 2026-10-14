@@ -3150,3 +3150,14 @@ nav {
 [data-theme="dark"] .revision-grid small {
   color: #a7bfb0;
 }
+
+[data-theme="dark"] .mini-source {
+  background: #152d1f;
+  border-color: #244c34;
+}
+[data-theme="dark"] .mini-source strong {
+  color: #e2ede7;
+}
+[data-theme="dark"] .mini-source small {
+  color: #a7bfb0;
+}
