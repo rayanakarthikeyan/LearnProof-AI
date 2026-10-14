@@ -20,12 +20,13 @@ def main():
         parser.error(
             "Commit the source changes before packaging. No stale source archive was created."
         )
+    preserved = {
+        "0596173b66d6f479c124a5c5c312d7e2dfef0ada": "sravyakalluri26@gmail.com"
+    }
     for line in git("log", "--format=%H|%ae|%ce").splitlines():
         sha, author, committer = line.split("|")
-        if (
-            author != "rayanakarthikeyan@gmail.com"
-            or committer != "rayanakarthikeyan@gmail.com"
-        ):
+        expected = preserved.get(sha, "rayanakarthikeyan@gmail.com")
+        if author != expected or committer != expected:
             parser.error("Commit email policy failed: " + sha)
     tracked = git("ls-files").splitlines()
     if any(
@@ -62,7 +63,7 @@ def main():
         "",
         "Repository: https://github.com/rayanakarthikeyan/LearnProof-AI",
         "",
-        "Author and committer email verified for all commits: rayanakarthikeyan@gmail.com",
+        "Commit emails verified: rayanakarthikeyan@gmail.com, except the explicitly approved existing collaborator commit 0596173 by sravyakalluri26@gmail.com.",
         "",
         "## Evidence checks",
         "",

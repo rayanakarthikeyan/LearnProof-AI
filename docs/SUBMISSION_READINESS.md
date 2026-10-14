@@ -53,4 +53,4 @@ After committing a clean tree:
 .\.venv\Scripts\python.exe -m learnproof.release
 ```
 
-This produces a committed-source ZIP and an evidence report under ignored `output/submission/`. It verifies every commit author/committer email is `rayanakarthikeyan@gmail.com` and excludes credentials, local histories and virtual environments. It does not silently turn pending checks into passes.
+This produces a committed-source ZIP and an evidence report under ignored `output/submission/`. It verifies commit author/committer emails are `rayanakarthikeyan@gmail.com`, except the explicitly approved existing collaborator commit `0596173` by `sravyakalluri26@gmail.com` and excludes credentials, local histories and virtual environments. It does not silently turn pending checks into passes.

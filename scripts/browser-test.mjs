@@ -22,14 +22,23 @@ try {
     { data: { name: "Browser verification profile" } },
   );
   const learner = await created.json();
-  await page.addInitScript(
-    (id) => localStorage.setItem("learnproof-learner", id),
-    learner.id,
-  );
+  await page.addInitScript((id) => {
+    localStorage.setItem("learnproof-learner", id);
+    if (!localStorage.getItem("learnproof-theme"))
+      localStorage.setItem("learnproof-theme", "light");
+  }, learner.id);
   await page.goto(process.env.TEST_BASE_URL || "http://127.0.0.1:5173");
   await page
     .getByRole("heading", { name: "Build understanding. Keep the proof." })
     .waitFor();
+  await page.getByRole("button", { name: "Switch to dark mode" }).click();
+  await page.reload();
+  await page.getByRole("button", { name: "Switch to light mode" }).waitFor();
+  await page.screenshot({
+    path: "tmp/browser/overview-dark.png",
+    fullPage: true,
+  });
+  await page.getByRole("button", { name: "Switch to light mode" }).click();
   await page.screenshot({
     path: "tmp/browser/overview-desktop.png",
     fullPage: true,

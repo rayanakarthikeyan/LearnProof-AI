@@ -118,7 +118,7 @@ Open http://127.0.0.1:8000. The container serves the built UI and API in one pro
 python -m learnproof.release
 ```
 
-A clean committed tree is required. This writes an ignored source ZIP and a factual evidence report under `output/submission/`. All commit author/committer emails are checked. Private `.env`, local histories and environments are excluded.
+A clean committed tree is required. This writes an ignored source ZIP and a factual evidence report under `output/submission/`. All commit author/committer emails are checked against the required identity, with one explicitly approved existing collaborator commit preserved. Private `.env`, local histories and environments are excluded.
 
 Read [submission readiness](docs/SUBMISSION_READINESS.md), [Devpost draft](docs/DEVPOST_DRAFT.md), and [third-party notices](docs/THIRD_PARTY_NOTICES.md) before publishing the final project page. The narrated source clip is not the required 3–10 minute working-system YouTube demo.
 
@@ -142,3 +142,5 @@ React/TypeScript/Vite frontend; Python/FastAPI service; SQLite and local files f
 Original starter code and documentation: MIT licensed. Do not assume uploaded textbooks, lecture videos, or previous repositories share this license. The supplied planning PDFs are intentionally not redistributed here.
 
 Author: **rayanakarthikeyan**. Git commit email: **rayanakarthikeyan@gmail.com**.
+
+Frontend modularization and dark mode: [sravyakalluri26](https://github.com/sravyakalluri26), preserved in commit `0596173` with original authorship.

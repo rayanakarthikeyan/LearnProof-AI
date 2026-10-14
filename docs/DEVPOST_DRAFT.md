@@ -32,6 +32,8 @@ Separating valid citations from genuinely supporting citations required claim-le
 
 The author previously built Academia-Lab and DS-Portal. This repository implements its own learner/ingestion/assessment code; it does not copy those codebases. The proposal/starter and initial web prototype were committed on 11 October 2026; submission-focused improvements followed on 14 October 2026. Confirm organizer eligibility and state the work completed during the eligible event period truthfully.
 
+Frontend component modularization and dark mode were contributed by GitHub user `sravyakalluri26`; the original commit and authorship are preserved. Add their real full name to the team information if they are participating in the submission.
+
 ## Links and team
 
 - Public source: https://github.com/rayanakarthikeyan/LearnProof-AI
