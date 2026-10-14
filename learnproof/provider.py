@@ -1,4 +1,5 @@
 """Server-side structured Gemini adapter; failures never become canned AI answers."""
+
 import json
 import os
 import time
@@ -10,45 +11,98 @@ class ProviderError(RuntimeError):
 
 
 def configured():
-    return bool(os.environ.get('GEMINI_API_KEY', '').strip())
+    return bool(os.environ.get("GEMINI_API_KEY", "").strip())
 
 
 def model_name(verifier=False):
-    return (os.environ.get('GEMINI_VERIFIER_MODEL') if verifier else None) or os.environ.get('GEMINI_MODEL', 'gemini-3.8-flash')
+    return (
+        os.environ.get("GEMINI_VERIFIER_MODEL") if verifier else None
+    ) or os.environ.get("GEMINI_MODEL", "gemini-3.8-flash")
+
+
+def embed(texts, query=False):
+    if not configured():
+        raise ProviderError("Semantic embeddings require a configured provider.")
+    from google import genai
+    import math
+
+    client = genai.Client(
+        api_key=os.environ["GEMINI_API_KEY"], http_options={"timeout": 60000}
+    )
+    try:
+        result = client.models.embed_content(
+            model="gemini-embedding-001",
+            contents=texts,
+            config={
+                "task_type": "RETRIEVAL_QUERY" if query else "RETRIEVAL_DOCUMENT",
+                "output_dimensionality": 768,
+            },
+        )
+        vectors = [e.values for e in result.embeddings]
+        if len(vectors) != len(texts) or not all(
+            v and all(math.isfinite(x) for x in v) for v in vectors
+        ):
+            raise ProviderError("Invalid embedding response.")
+        return vectors
+    except ProviderError:
+        raise
+    except Exception as exc:
+        raise ProviderError(
+            "Semantic embedding request failed. Check provider availability and quota."
+        ) from exc
+    finally:
+        client.close()
 
 
 def generate(prompt, images=(), *, video=None, verifier=False):
     if not configured():
-        raise ProviderError('Configure GEMINI_API_KEY on the server to enable this feature.')
+        raise ProviderError(
+            "Configure GEMINI_API_KEY on the server to enable this feature."
+        )
     from google import genai
     from google.genai import types
-    client = genai.Client(api_key=os.environ['GEMINI_API_KEY'], http_options={'timeout': 90000})
+
+    client = genai.Client(
+        api_key=os.environ["GEMINI_API_KEY"], http_options={"timeout": 90000}
+    )
     uploaded = None
     try:
         parts = [prompt]
         for image in images:
-            parts.append(types.Part.from_bytes(data=Path(image).read_bytes(), mime_type='image/png'))
+            parts.append(
+                types.Part.from_bytes(
+                    data=Path(image).read_bytes(), mime_type="image/png"
+                )
+            )
         if video:
             uploaded = client.files.upload(file=str(video))
             deadline = time.monotonic() + 180
-            while uploaded.state.name == 'PROCESSING' and time.monotonic() < deadline:
+            while uploaded.state.name == "PROCESSING" and time.monotonic() < deadline:
                 time.sleep(2)
                 uploaded = client.files.get(name=uploaded.name)
-            if uploaded.state.name != 'ACTIVE':
-                raise ProviderError('The video did not finish processing. Try a shorter clip.')
+            if uploaded.state.name != "ACTIVE":
+                raise ProviderError(
+                    "The video did not finish processing. Try a shorter clip."
+                )
             parts.append(uploaded)
         response = client.models.generate_content(
-            model=model_name(verifier), contents=parts,
-            config=types.GenerateContentConfig(response_mime_type='application/json', temperature=0.1))
+            model=model_name(verifier),
+            contents=parts,
+            config=types.GenerateContentConfig(
+                response_mime_type="application/json", temperature=0.1
+            ),
+        )
         result = json.loads(response.text)
         if not isinstance(result, dict):
-            raise ProviderError('Provider returned an invalid structured response.')
+            raise ProviderError("Provider returned an invalid structured response.")
         return result
     except ProviderError:
         raise
     except Exception as exc:
         # Do not echo SDK errors that could contain request details or credentials.
-        raise ProviderError('The AI provider request failed. Check the configured model, key and quota.') from exc
+        raise ProviderError(
+            "The AI provider request failed. Check the configured model, key and quota."
+        ) from exc
     finally:
         if uploaded:
             try:

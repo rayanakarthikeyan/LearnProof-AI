@@ -7,8 +7,10 @@ def main() -> None:
     print("LearnProof learner starter — scripted fixture, not a live AI tutor")
     graph = {"insertion-cost": ("traversal",), "traversal": ("pointers",)}
     state = {"pointers": 0.8, "traversal": 0.3, "insertion-cost": 0.5}
-    bank = [Question("traverse-1", "traversal", 1, True, "fixture-slide-3"),
-            Question("traverse-2", "traversal", 2, True, "fixture-page-2")]
+    bank = [
+        Question("traverse-1", "traversal", 1, True, "fixture-slide-3"),
+        Question("traverse-2", "traversal", 2, True, "fixture-page-2"),
+    ]
     state["insertion-cost"] = update_mastery(state["insertion-cost"], False)
     concept = next_concept("insertion-cost", graph, state)
     first = select_question(bank, concept, state[concept], set())

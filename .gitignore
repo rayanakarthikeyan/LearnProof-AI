@@ -4,6 +4,8 @@
 __pycache__/
 *.py[cod]
 .venv/
+.venv*/
+output/submission/
 node_modules/
 tmp/
 uploads/

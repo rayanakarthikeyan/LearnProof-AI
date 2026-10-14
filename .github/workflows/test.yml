@@ -5,10 +5,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - run: python -m pip install -r requirements.lock.txt
+      - run: python -m pip install ruff==0.14.1 pip-audit==2.10.1
+      - run: ruff format --check learnproof tests
+      - run: pip-audit -r requirements.lock.txt --disable-pip --no-deps
       - run: python -m unittest discover -s tests -v
       - run: python -m learnproof.demo
       - uses: actions/setup-node@v4
@@ -16,7 +21,9 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci
+      - run: node scripts/check-commit-email.mjs
       - run: npm run build
+      - run: npm run format:check
       - run: npm audit --audit-level=high
       - run: npx playwright install --with-deps chromium --only-shell
       - name: Browser workflow checks
@@ -27,3 +34,51 @@ jobs:
             sleep 1
           done
           npm run test:ui
+      - name: Upload browser evidence on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-evidence
+          path: |
+            tmp/browser
+            /tmp/learnproof-dev.log
+  slide-rendering:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends libreoffice-impress fonts-dejavu-core
+      - run: python -m pip install -r requirements.lock.txt
+      - run: python -m unittest tests.test_api.ApiTests.test_sample_sources_and_real_locator_images -v
+  evaluation-imports:
+    runs-on: ubuntu-latest
+    env:
+      RAGAS_DO_NOT_TRACK: 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements-evaluation.lock.txt
+      - run: python -m pip check
+      - run: python -c "from ragas import EvaluationDataset, evaluate; from ragas.metrics import faithfulness, answer_relevancy, context_precision, context_recall; from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings; print('Evaluation imports OK')"
+  container-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t learnproof-ci .
+      - name: Run built app with faithful slide renderer
+        run: |
+          docker run -d --name learnproof -p 127.0.0.1:8000:8000 learnproof-ci
+          for i in $(seq 1 60); do
+            if curl -sf http://127.0.0.1:8000/api/health; then break; fi
+            sleep 1
+          done
+          curl -f http://127.0.0.1:8000/api/health
+          curl -f http://127.0.0.1:8000/ > /tmp/learnproof-page.html
+          grep -q '<div id="root"' /tmp/learnproof-page.html
+      - name: Container logs
+        if: always()
+        run: docker logs learnproof

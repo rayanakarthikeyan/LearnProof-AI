@@ -1,0 +1,11 @@
+.git
+.env
+.env.*
+.venv*
+.local-data
+node_modules
+tmp
+output
+dist
+__pycache__
+*.db

@@ -10,8 +10,14 @@ def _probability(value: float) -> None:
         raise ValueError("Probabilities must be finite and in [0, 1].")
 
 
-def update_mastery(prior: float, correct: bool, *, slip: float = 0.1,
-                   guess: float = 0.2, learning: float = 0.1) -> float:
+def update_mastery(
+    prior: float,
+    correct: bool,
+    *,
+    slip: float = 0.1,
+    guess: float = 0.2,
+    learning: float = 0.1,
+) -> float:
     """Update only from a scored observation; parameters are not calibrated."""
     for value in (prior, slip, guess, learning):
         _probability(value)
@@ -34,8 +40,12 @@ class Question:
     source_unit_id: str
 
 
-def next_concept(target: str, prerequisites: Mapping[str, Sequence[str]],
-                 mastery: Mapping[str, float], threshold: float = 0.7) -> str:
+def next_concept(
+    target: str,
+    prerequisites: Mapping[str, Sequence[str]],
+    mastery: Mapping[str, float],
+    threshold: float = 0.7,
+) -> str:
     """Choose the weakest unmastered ancestor; graph edges must be acyclic."""
     _probability(threshold)
     for value in mastery.values():
@@ -61,15 +71,20 @@ def next_concept(target: str, prerequisites: Mapping[str, Sequence[str]],
     return min(weak, key=lambda c: (mastery.get(c, 0.3), c)) if weak else target
 
 
-def select_question(bank: Sequence[Question], concept: str,
-                    mastery: float, seen: set[str]) -> Question | None:
+def select_question(
+    bank: Sequence[Question], concept: str, mastery: float, seen: set[str]
+) -> Question | None:
     """Never repeat IDs or deliver unverified/missing-source items.
 
     Semantic deduplication and real evidence resolution are future work.
     """
     _probability(mastery)
     level = 1 if mastery < 0.4 else 2 if mastery < 0.7 else 3
-    candidates = [q for q in bank if q.concept == concept and q.verified
-                  and q.source_unit_id and q.id not in seen]
-    return min(candidates, key=lambda q: (abs(q.difficulty - level), q.id),
-               default=None)
+    candidates = [
+        q
+        for q in bank
+        if q.concept == concept and q.verified and q.source_unit_id and q.id not in seen
+    ]
+    return min(
+        candidates, key=lambda q: (abs(q.difficulty - level), q.id), default=None
+    )

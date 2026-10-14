@@ -1,6 +1,6 @@
 # Proposed architecture
 
-This is the target design. Version 0.2 implements a local React/FastAPI vertical slice with SQLite and local source assets. See README for the exact tested status; PostgreSQL, hybrid vector retrieval and durable workers are not implemented yet.
+This is the target design. Version 0.2 implements a local React/FastAPI vertical slice with SQLite and local source assets. See README for the exact tested status; PostgreSQL and durable workers remain future deployment work. Version 0.3 implements optional Gemini semantic vectors in SQLite with rank fusion; this path needs live provider verification.
 
 ```mermaid
 flowchart LR

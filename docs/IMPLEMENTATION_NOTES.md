@@ -1,3 +1,7 @@
+# Version 0.3 update
+
+The current verified/pending status is in [SUBMISSION_READINESS.md](SUBMISSION_READINESS.md). Version 0.3 adds scoped exams, course-specific graphs, persistent repair, semantic retrieval, source audit, original raw media and strict dependency/commit checks. The historical v0.2 notes below remain as implementation context.
+
 # Version 0.2 verification and limits
 
 ## Implemented

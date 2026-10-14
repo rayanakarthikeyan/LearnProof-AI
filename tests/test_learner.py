@@ -19,10 +19,12 @@ class LearnerTests(unittest.TestCase):
 
     def test_prerequisites_and_distinct_profiles(self):
         graph = {"cost": ("traversal",), "traversal": ("pointers",)}
-        self.assertEqual(next_concept("cost", graph,
-                         {"pointers": 0.1, "traversal": 0.3}), "pointers")
-        self.assertEqual(next_concept("cost", graph,
-                         {"pointers": 0.9, "traversal": 0.8}), "cost")
+        self.assertEqual(
+            next_concept("cost", graph, {"pointers": 0.1, "traversal": 0.3}), "pointers"
+        )
+        self.assertEqual(
+            next_concept("cost", graph, {"pointers": 0.9, "traversal": 0.8}), "cost"
+        )
 
     def test_cycle_rejected(self):
         with self.assertRaises(ValueError):
@@ -33,10 +35,12 @@ class LearnerTests(unittest.TestCase):
         self.assertEqual(next_concept("a", graph, {"d": 0.1}), "d")
 
     def test_seen_unverified_and_missing_source_are_excluded(self):
-        bank = [Question("seen", "x", 1, True, "s1"),
-                Question("bad", "x", 1, False, "s1"),
-                Question("no-source", "x", 1, True, ""),
-                Question("fresh", "x", 2, True, "s2")]
+        bank = [
+            Question("seen", "x", 1, True, "s1"),
+            Question("bad", "x", 1, False, "s1"),
+            Question("no-source", "x", 1, True, ""),
+            Question("fresh", "x", 2, True, "s2"),
+        ]
         selected = select_question(bank, "x", 0.3, {"seen"})
         self.assertEqual(selected.id, "fresh")
         self.assertIsNone(select_question(bank, "x", 0.3, {"seen", "fresh"}))

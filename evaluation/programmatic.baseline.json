@@ -1,0 +1,470 @@
+{
+  "status": "measured-programmatic",
+  "mode": "local-excerpts",
+  "created_at": "2026-10-14T03:49:27.797299+00:00",
+  "course": "data-structures",
+  "gold_path": "evaluation/gold.text.jsonl",
+  "case_count": 30,
+  "answerable_count": 20,
+  "off_material_count": 10,
+  "metrics": {
+    "source_hit_at_4": 0.95,
+    "off_material_refusal_rate": 1.0,
+    "answerable_false_refusal_rate": 0.05,
+    "locator_validity": 1.0,
+    "quote_integrity": 1.0
+  },
+  "duration_seconds": 0.2809999999590218,
+  "cases": [
+    {
+      "question": "What does a pointer store?",
+      "off_material": false,
+      "expected_ids": [
+        "unit_c272b050410a43c7b5feec7bfe8a1531"
+      ],
+      "retrieved_ids": [
+        "unit_f45e7f4fd1864d389322de3d8aa08962",
+        "unit_c272b050410a43c7b5feec7bfe8a1531"
+      ],
+      "source_hit": true,
+      "refused": false,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 3
+    },
+    {
+      "question": "What marks the end of a singly linked list?",
+      "off_material": false,
+      "expected_ids": [
+        "unit_c272b050410a43c7b5feec7bfe8a1531"
+      ],
+      "retrieved_ids": [
+        "unit_f45e7f4fd1864d389322de3d8aa08962",
+        "unit_c272b050410a43c7b5feec7bfe8a1531",
+        "unit_dcd2261ae2084f9e9b8d16ea456fcba2",
+        "unit_0297970270e842389b33d13fe7cfb9c1"
+      ],
+      "source_hit": true,
+      "refused": false,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 2
+    },
+    {
+      "question": "Can two references point to the same node?",
+      "off_material": false,
+      "expected_ids": [
+        "unit_c272b050410a43c7b5feec7bfe8a1531"
+      ],
+      "retrieved_ids": [
+        "unit_f45e7f4fd1864d389322de3d8aa08962",
+        "unit_c272b050410a43c7b5feec7bfe8a1531",
+        "unit_6fa4a8a85a9a483eab6116705a5142d3",
+        "unit_c1290ff1db644091a00c79970bdfcfbd"
+      ],
+      "source_hit": true,
+      "refused": false,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 3
+    },
+    {
+      "question": "Does changing a reference copy the entire node?",
+      "off_material": false,
+      "expected_ids": [
+        "unit_c272b050410a43c7b5feec7bfe8a1531"
+      ],
+      "retrieved_ids": [
+        "unit_f45e7f4fd1864d389322de3d8aa08962",
+        "unit_c272b050410a43c7b5feec7bfe8a1531",
+        "unit_4656428cdf744da88adf19f337ea9c1d",
+        "unit_0297970270e842389b33d13fe7cfb9c1"
+      ],
+      "source_hit": true,
+      "refused": false,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 3
+    },
+    {
+      "question": "Where does linked-list traversal start?",
+      "off_material": false,
+      "expected_ids": [
+        "unit_0297970270e842389b33d13fe7cfb9c1"
+      ],
+      "retrieved_ids": [
+        "unit_4656428cdf744da88adf19f337ea9c1d",
+        "unit_0297970270e842389b33d13fe7cfb9c1"
+      ],
+      "source_hit": true,
+      "refused": false,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 3
+    },
+    {
+      "question": "Which references are followed during traversal?",
+      "off_material": false,
+      "expected_ids": [
+        "unit_0297970270e842389b33d13fe7cfb9c1"
+      ],
+      "retrieved_ids": [
+        "unit_4656428cdf744da88adf19f337ea9c1d",
+        "unit_0297970270e842389b33d13fe7cfb9c1"
+      ],
+      "source_hit": true,
+      "refused": false,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 3
+    },
+    {
+      "question": "How many nodes can a worst-case linked-list search inspect?",
+      "off_material": false,
+      "expected_ids": [
+        "unit_0297970270e842389b33d13fe7cfb9c1"
+      ],
+      "retrieved_ids": [
+        "unit_4656428cdf744da88adf19f337ea9c1d",
+        "unit_0297970270e842389b33d13fe7cfb9c1",
+        "unit_242515b4d06d448b8ad9b62ba81184f7",
+        "unit_dcd2261ae2084f9e9b8d16ea456fcba2"
+      ],
+      "source_hit": true,
+      "refused": false,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 3
+    },
+    {
+      "question": "What is the worst-case time of searching a linked list?",
+      "off_material": false,
+      "expected_ids": [
+        "unit_0297970270e842389b33d13fe7cfb9c1"
+      ],
+      "retrieved_ids": [
+        "unit_242515b4d06d448b8ad9b62ba81184f7",
+        "unit_4656428cdf744da88adf19f337ea9c1d",
+        "unit_dcd2261ae2084f9e9b8d16ea456fcba2",
+        "unit_0297970270e842389b33d13fe7cfb9c1"
+      ],
+      "source_hit": true,
+      "refused": false,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 3
+    },
+    {
+      "question": "How many next links are followed to reach the sixth node from the first?",
+      "off_material": false,
+      "expected_ids": [
+        "unit_0297970270e842389b33d13fe7cfb9c1"
+      ],
+      "retrieved_ids": [
+        "unit_4656428cdf744da88adf19f337ea9c1d",
+        "unit_0297970270e842389b33d13fe7cfb9c1"
+      ],
+      "source_hit": true,
+      "refused": false,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 3
+    },
+    {
+      "question": "What update comes first when inserting X after a known node A?",
+      "off_material": false,
+      "expected_ids": [
+        "unit_6fa4a8a85a9a483eab6116705a5142d3"
+      ],
+      "retrieved_ids": [
+        "unit_c1290ff1db644091a00c79970bdfcfbd",
+        "unit_6fa4a8a85a9a483eab6116705a5142d3",
+        "unit_242515b4d06d448b8ad9b62ba81184f7",
+        "unit_dcd2261ae2084f9e9b8d16ea456fcba2"
+      ],
+      "source_hit": true,
+      "refused": false,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 3
+    },
+    {
+      "question": "What update connects A to X after X.next is set?",
+      "off_material": false,
+      "expected_ids": [
+        "unit_6fa4a8a85a9a483eab6116705a5142d3"
+      ],
+      "retrieved_ids": [
+        "unit_c1290ff1db644091a00c79970bdfcfbd",
+        "unit_6fa4a8a85a9a483eab6116705a5142d3"
+      ],
+      "source_hit": true,
+      "refused": false,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 3
+    },
+    {
+      "question": "How many next-reference updates insert after an already known node?",
+      "off_material": false,
+      "expected_ids": [
+        "unit_6fa4a8a85a9a483eab6116705a5142d3"
+      ],
+      "retrieved_ids": [
+        "unit_c1290ff1db644091a00c79970bdfcfbd",
+        "unit_6fa4a8a85a9a483eab6116705a5142d3",
+        "unit_242515b4d06d448b8ad9b62ba81184f7",
+        "unit_dcd2261ae2084f9e9b8d16ea456fcba2"
+      ],
+      "source_hit": true,
+      "refused": false,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 3
+    },
+    {
+      "question": "Why is update order important for insertion?",
+      "off_material": false,
+      "expected_ids": [
+        "unit_6fa4a8a85a9a483eab6116705a5142d3"
+      ],
+      "retrieved_ids": [],
+      "source_hit": false,
+      "refused": true,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 0
+    },
+    {
+      "question": "Does insertion at an already known position require a search?",
+      "off_material": false,
+      "expected_ids": [
+        "unit_6fa4a8a85a9a483eab6116705a5142d3"
+      ],
+      "retrieved_ids": [
+        "unit_c1290ff1db644091a00c79970bdfcfbd",
+        "unit_6fa4a8a85a9a483eab6116705a5142d3",
+        "unit_242515b4d06d448b8ad9b62ba81184f7",
+        "unit_dcd2261ae2084f9e9b8d16ea456fcba2"
+      ],
+      "source_hit": true,
+      "refused": false,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 3
+    },
+    {
+      "question": "Is every linked-list insertion O(1)?",
+      "off_material": false,
+      "expected_ids": [
+        "unit_dcd2261ae2084f9e9b8d16ea456fcba2"
+      ],
+      "retrieved_ids": [
+        "unit_242515b4d06d448b8ad9b62ba81184f7",
+        "unit_dcd2261ae2084f9e9b8d16ea456fcba2",
+        "unit_c1290ff1db644091a00c79970bdfcfbd",
+        "unit_6fa4a8a85a9a483eab6116705a5142d3"
+      ],
+      "source_hit": true,
+      "refused": false,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 3
+    },
+    {
+      "question": "What is the cost of rewiring after a known insertion node?",
+      "off_material": false,
+      "expected_ids": [
+        "unit_dcd2261ae2084f9e9b8d16ea456fcba2"
+      ],
+      "retrieved_ids": [
+        "unit_c1290ff1db644091a00c79970bdfcfbd",
+        "unit_6fa4a8a85a9a483eab6116705a5142d3",
+        "unit_242515b4d06d448b8ad9b62ba81184f7",
+        "unit_dcd2261ae2084f9e9b8d16ea456fcba2"
+      ],
+      "source_hit": true,
+      "refused": false,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 3
+    },
+    {
+      "question": "What is total counted work for 10 inspected nodes and two pointer updates?",
+      "off_material": false,
+      "expected_ids": [
+        "unit_dcd2261ae2084f9e9b8d16ea456fcba2"
+      ],
+      "retrieved_ids": [
+        "unit_242515b4d06d448b8ad9b62ba81184f7",
+        "unit_dcd2261ae2084f9e9b8d16ea456fcba2",
+        "unit_f45e7f4fd1864d389322de3d8aa08962",
+        "unit_c272b050410a43c7b5feec7bfe8a1531"
+      ],
+      "source_hit": true,
+      "refused": false,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 3
+    },
+    {
+      "question": "Are teaching operation counts actual processor timings?",
+      "off_material": false,
+      "expected_ids": [
+        "unit_dcd2261ae2084f9e9b8d16ea456fcba2"
+      ],
+      "retrieved_ids": [
+        "unit_242515b4d06d448b8ad9b62ba81184f7",
+        "unit_dcd2261ae2084f9e9b8d16ea456fcba2"
+      ],
+      "source_hit": true,
+      "refused": false,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 2
+    },
+    {
+      "question": "What rule does a stack follow?",
+      "off_material": false,
+      "expected_ids": [
+        "unit_03b6aa9d3b56449f8776e823f9eecd12"
+      ],
+      "retrieved_ids": [
+        "unit_cc9e5c862d0c477e8fad0aa804daec92",
+        "unit_03b6aa9d3b56449f8776e823f9eecd12"
+      ],
+      "source_hit": true,
+      "refused": false,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 3
+    },
+    {
+      "question": "What rule does a queue follow?",
+      "off_material": false,
+      "expected_ids": [
+        "unit_fc6db934c6804313a1665c331e6ddc46"
+      ],
+      "retrieved_ids": [
+        "unit_b090fb75ba754bdabfa63277a40a345f",
+        "unit_fc6db934c6804313a1665c331e6ddc46"
+      ],
+      "source_hit": true,
+      "refused": false,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 3
+    },
+    {
+      "question": "Who won the football world cup?",
+      "off_material": true,
+      "expected_ids": [],
+      "retrieved_ids": [],
+      "source_hit": false,
+      "refused": true,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 0
+    },
+    {
+      "question": "Explain mitochondria and cellular respiration.",
+      "off_material": true,
+      "expected_ids": [],
+      "retrieved_ids": [],
+      "source_hit": false,
+      "refused": true,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 0
+    },
+    {
+      "question": "What is the capital of Brazil?",
+      "off_material": true,
+      "expected_ids": [],
+      "retrieved_ids": [],
+      "source_hit": false,
+      "refused": true,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 0
+    },
+    {
+      "question": "Describe the causes of the French Revolution.",
+      "off_material": true,
+      "expected_ids": [],
+      "retrieved_ids": [],
+      "source_hit": false,
+      "refused": true,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 0
+    },
+    {
+      "question": "How does photosynthesis generate glucose?",
+      "off_material": true,
+      "expected_ids": [],
+      "retrieved_ids": [],
+      "source_hit": false,
+      "refused": true,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 0
+    },
+    {
+      "question": "What is the Schwarzschild radius of a black hole?",
+      "off_material": true,
+      "expected_ids": [],
+      "retrieved_ids": [],
+      "source_hit": false,
+      "refused": true,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 0
+    },
+    {
+      "question": "Explain the periodic table halogen group.",
+      "off_material": true,
+      "expected_ids": [],
+      "retrieved_ids": [],
+      "source_hit": false,
+      "refused": true,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 0
+    },
+    {
+      "question": "Summarize the plot of Hamlet.",
+      "off_material": true,
+      "expected_ids": [],
+      "retrieved_ids": [],
+      "source_hit": false,
+      "refused": true,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 0
+    },
+    {
+      "question": "How do RNA vaccines work?",
+      "off_material": true,
+      "expected_ids": [],
+      "retrieved_ids": [],
+      "source_hit": false,
+      "refused": true,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 0
+    },
+    {
+      "question": "Give the weather forecast for tomorrow.",
+      "off_material": true,
+      "expected_ids": [],
+      "retrieved_ids": [],
+      "source_hit": false,
+      "refused": true,
+      "locator_valid": true,
+      "quote_integrity": true,
+      "claim_count": 0
+    }
+  ],
+  "limits": "Programmatic locator/exact-quote/retrieval checks only. Not semantic faithfulness, answer relevancy, real learning efficacy or a substitute for Ragas. Source-hit uses strict annotated locations."
+}

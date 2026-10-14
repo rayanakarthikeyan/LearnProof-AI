@@ -1,0 +1,18 @@
+{
+  "license": "MIT",
+  "origin": "Original LearnProof authored fixtures",
+  "files": [
+    "linked-list-evidence.pdf",
+    "linked-list-evidence.pptx",
+    "linked-list-lecture.mp4"
+  ],
+  "video_duration_seconds": 45,
+  "audio": true,
+  "visual_only_values": [
+    7,
+    11,
+    19,
+    27
+  ],
+  "note": "Raw PDF, image-based PPTX and MP4; no transcript is passed to ingestion."
+}

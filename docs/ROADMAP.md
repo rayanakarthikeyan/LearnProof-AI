@@ -4,7 +4,7 @@
 
 Completed: local course library; real PDF/PPTX text extraction and source images; cited excerpt tutor; raw upload job/failure states; authored assessment formats; persistent learner profiles/attempts; BKT estimates; diagnostic and prerequisite/transfer flow; source viewer; Gemini adapters; evaluation runner and seeded simulation. The local UI is running and the repository has API tests and a production build.
 
-Next: configure Gemini on the server and validate live visual/video ingestion; verify full-fidelity slide rendering; strengthen misconception probes and grading; add a larger verified question bank, mock exams, hybrid retrieval and course-specific concepts; freeze a modality-balanced benchmark and run Ragas. The existing 10-case gold file is a development smoke set. The simulation does not establish a learning advantage over fixed order.
+Next: configure Gemini on the server and validate live visual/video ingestion; verify full-fidelity slide rendering; strengthen misconception probes and grading; add a larger verified question bank, mock exams, hybrid retrieval and course-specific concepts; freeze a modality-balanced benchmark and run Ragas. The existing 10-case gold file is a development smoke set; version 0.3 adds a versioned 60-case multimodal reference set, a measured 30-case text audit, course-specific graphs, persisted repair and mock exams. The simulation does not establish a learning advantage over fixed order.
 
 The event duration, team size and deadline were not supplied. The schedule below is an illustrative 48-hour plan, not a confirmed event schedule. For a solo build, use the same sequence with a smaller course packet and more time; do not remove mandatory modalities or evaluation to add optional features.
 

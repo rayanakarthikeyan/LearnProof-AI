@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "frozen_at": "2026-10-14",
+  "gold_files": {
+    "evaluation/gold.text.jsonl": {
+      "sha256": "208e51ec32da24a89c7f22b3b5711229cb951d41dca5d33d4605ef201c06d546",
+      "cases": 30
+    },
+    "evaluation/gold.multimodal.jsonl": {
+      "sha256": "cc5a91a30c9b73c46b95cac5c1fc77270c950d4b89b594fd4247442762bf75db",
+      "cases": 60
+    }
+  },
+  "multimodal_split": {
+    "text": 20,
+    "figure": 15,
+    "video": 15,
+    "off_material": 10
+  },
+  "review": "References authored and checked against original notes, images and scene intervals. No claims of independent human review or held-out real student efficacy."
+}
