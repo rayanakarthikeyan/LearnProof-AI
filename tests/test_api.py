@@ -1,6 +1,7 @@
 """Integration tests use isolated data and real PDF/PPTX extraction, no live provider."""
 
 import json
+import os
 import tempfile
 import unittest
 from pathlib import Path
@@ -45,6 +46,8 @@ class ApiTests(unittest.TestCase):
             units = self.client.get(f"/api/sources/{source['id']}/units").json()
             self.assertEqual(len(units), 6)
             self.assertEqual(units[0]["page"], 1)
+            if source["kind"] == "pptx" and os.getenv("REQUIRE_SLIDE_RENDER") == "1":
+                self.assertTrue(all("rendered-slide" in u["extraction"] for u in units))
             response = self.client.get(units[0]["image_url"])
             self.assertEqual(response.status_code, 200)
             self.assertTrue(response.content.startswith(b"\x89PNG"))

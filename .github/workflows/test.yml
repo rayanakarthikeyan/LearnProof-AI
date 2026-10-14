@@ -34,8 +34,8 @@ jobs:
             sleep 1
           done
           npm run test:ui
-      - name: Upload browser evidence on failure
-        if: failure()
+      - name: Upload browser evidence
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: browser-evidence
@@ -52,6 +52,8 @@ jobs:
       - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends libreoffice-impress fonts-dejavu-core
       - run: python -m pip install -r requirements.lock.txt
       - run: python -m unittest tests.test_api.ApiTests.test_sample_sources_and_real_locator_images -v
+        env:
+          REQUIRE_SLIDE_RENDER: "1"
   evaluation-imports:
     runs-on: ubuntu-latest
     env:

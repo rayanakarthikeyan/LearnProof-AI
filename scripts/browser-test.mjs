@@ -187,6 +187,10 @@ try {
     await page
       .getByRole("button", { name: "Submit and continue", exact: true })
       .click();
+    await page.waitForFunction((previous) => {
+      const heading = document.querySelector(".question-panel > h2");
+      return heading && heading.textContent !== previous;
+    }, prompt);
   }
   await page.getByRole("heading", { name: "6 correct / 6 scored" }).waitFor();
   await page
@@ -229,6 +233,9 @@ try {
   console.log(
     "Browser checks passed: tutor, source preview, repair/probe/transfer across reload, six-item mock exam, persisted results, unmeasured benchmark, desktop/mobile layout.",
   );
+} catch (error) {
+  await page.screenshot({ path: "tmp/browser/failure.png", fullPage: true });
+  throw error;
 } finally {
   await browser.close();
 }
